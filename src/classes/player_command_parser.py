@@ -50,29 +50,48 @@ async def parse_player_command(command: str, world: "World", avatar: "Avatar") -
         response = await call_llm(prompt, mode=LLMMode.NORMAL)
         
         # 调试：打印LLM原始响应
-        print(f"[PlayerCommandParser] LLM原始响应: '{response}'")
+        print(f"[PlayerCommandParser] LLM原始响应: '{response}', 类型: {type(response)}")
+        
+        if not response:
+            print("[PlayerCommandParser] LLM返回空响应")
+            return None
         
         # 尝试解析 JSON
-        text = response.strip() if response else ''
+        text = response.strip()
+        if not text:
+            print("[PlayerCommandParser] LLM响应strip后为空")
+            return None
+            
         # 移除可能的 markdown 代码块
         text = re.sub(r"^```(?:json)?\s*", "", text)
         text = re.sub(r"\s*```$", "", text)
         
+        if not text:
+            print("[PlayerCommandParser] 移除markdown后为空")
+            return None
+        
+        print(f"[PlayerCommandParser] 解析JSON: '{text}'")
         result = json.loads(text)
+        print(f"[PlayerCommandParser] 解析结果: {result}")
         
         if not result:
+            print("[PlayerCommandParser] 结果为空")
             return None
         
         action_name = result.get("action_name")
         params = result.get("params", {}) or {}
         
         if not action_name:
+            print("[PlayerCommandParser] action_name为空")
             return None
         
+        print(f"[PlayerCommandParser] 成功: action={action_name}, params={params}")
         return (action_name, params)
         
     except (json.JSONDecodeError, Exception) as e:
+        import traceback
         print(f"[PlayerCommandParser] 解析失败: {e}")
+        traceback.print_exc()
         return None
 
 
