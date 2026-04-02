@@ -49,8 +49,11 @@ async def parse_player_command(command: str, world: "World", avatar: "Avatar") -
     try:
         response = await call_llm(prompt, mode=LLMMode.NORMAL)
         
+        # 调试：打印LLM原始响应
+        print(f"[PlayerCommandParser] LLM原始响应: '{response}'")
+        
         # 尝试解析 JSON
-        text = response.strip()
+        text = response.strip() if response else ''
         # 移除可能的 markdown 代码块
         text = re.sub(r"^```(?:json)?\s*", "", text)
         text = re.sub(r"\s*```$", "", text)
