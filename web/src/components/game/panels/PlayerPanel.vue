@@ -2,7 +2,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { NInput, NInputNumber, NButton, NCard, NSpace, NTag, NSpin, NEmpty, NDivider, NSelect } from 'naive-ui';
-import { playerApi, type PlayerStatusDTO } from '../../../../api';
+import { playerApi, type PlayerStatusDTO } from '../../../api';
 
 const { t } = useI18n();
 
