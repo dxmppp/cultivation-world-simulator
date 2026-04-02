@@ -2135,20 +2135,23 @@ async def create_player_avatar(req: CreatePlayerRequest):
     
     try:
         from src.sim.avatar_init import create_avatar_from_request
-        from src.systems.cultivation import Realm
+        from src.systems.cultivation import Realm, CultivationProgress, REALM_ORDER
         
         realm = Realm(req.initial_realm)
+        
+        # 将 realm 转换为 level（每个 realm 30 级）
+        realm_index = REALM_ORDER.index(realm) if realm in REALM_ORDER else 0
+        level = realm_index * 30 + 1  # 每个 realm 的第一级
         
         # 创建玩家角色
         avatar = create_avatar_from_request(
             world=world,
+            current_month_stamp=world.month_stamp,
             name=req.name,
             gender=req.gender,
             age=req.age,
-            realm=realm,
-            sect_id=req.sect_id,
-            persona_ids=req.persona_ids,
-            backstory=req.backstory,
+            level=level,
+            sect=req.sect_id,
         )
         
         # 标记为玩家角色
