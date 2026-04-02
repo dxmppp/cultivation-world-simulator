@@ -9,7 +9,7 @@ import json
 import re
 from typing import Optional, TYPE_CHECKING
 from src.utils.llm import call_llm, LLMMode
-from src.classes.action import get_action_infos_str
+from src.classes.actions import get_action_infos_str
 from src.classes.typings import ACTION_NAME_PARAMS_PAIR
 
 if TYPE_CHECKING:
