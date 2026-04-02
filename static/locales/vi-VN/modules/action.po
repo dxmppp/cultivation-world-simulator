@@ -1,0 +1,207 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cultivation-world-simulator 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-20 00:00+0000\n"
+"PO-Revision-Date: 2024-01-20 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: vi-VN\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
+"Evil alignment follows the principles of survival of the fittest, "
+"prioritizing self-interest above all, disdaining rules, and venerating power"
+" and fear. Acts ruthlessly, often resorting to murder and plunder."
+msgstr ""
+"Trận doanh tà ác tôn thờ đạo lý mạnh được yếu thua, đặt lợi ích bản thân lên"
+" trên hết, khinh thường quy tắc, tôn sùng quyền lực và nỗi sợ. Hành sự ngoan"
+" độc, thường có những việc như sát nhân đoạt bảo."
+
+msgid ""
+"Neutral alignment follows the principles of going with the flow, seeking "
+"benefit and avoiding harm, valuing self-cultivation and balance, and not "
+"easily taking sides."
+msgstr ""
+"Trận doanh trung lập lấy thuận thế mà làm, tránh hại cầu lợi, coi trọng tự "
+"độ cùng cân bằng, không dễ nghiêng về phe nào."
+
+msgid ""
+"Righteous alignment follows the principles of helping the weak, maintaining "
+"order, and vanquishing evil."
+msgstr ""
+"Trận doanh chính đạo lấy việc phù trợ kẻ yếu, duy trì trật tự và trừ ma vệ "
+"đạo làm chuẩn tắc."
+
+# Action Short Names (for legal_actions)
+msgid "action_dualcultivation_short_name"
+msgstr "Song Tu"
+
+msgid "action_educate_short_name"
+msgstr "Giáo Hóa"
+
+msgid "action_meditate_short_name"
+msgstr "Thiền Định"
+
+# Action: Play Extended
+msgid "action_reading"
+msgstr "Đọc Sách"
+
+msgid "action_reading_desc"
+msgstr "Nghiên đọc cổ tịch để mở mang kiến thức."
+
+msgid "action_respire_short_name"
+msgstr "Thổ Nạp"
+
+msgid "action_tea_party"
+msgstr "Trà Hội"
+
+msgid "action_tea_party_desc"
+msgstr "Cùng bằng hữu thưởng trà."
+
+msgid "action_tea_party_story_prompt"
+msgstr "Hai người đang mở một trà hội thanh nhã."
+
+msgid "action_tea_tasting"
+msgstr "Phẩm Trà"
+
+msgid "action_tea_tasting_desc"
+msgstr "Nếm trà ngon, dưỡng tâm tĩnh khí."
+
+msgid "action_temper_short_name"
+msgstr "Luyện Thể"
+
+msgid "sect_mission_action_name"
+msgstr "Nhiệm Vụ Tông Môn"
+
+msgid "sect_mission_description"
+msgstr "Ở lại tổng bộ tông môn để nhận các việc nội vụ, tuần tra và trấn thủ, rồi kết toán thành bại cùng phần thưởng sau vài tháng."
+
+msgid "sect_mission_requirements"
+msgstr "Phải là đệ tử của tông môn và đang ở tổng bộ của chính tông môn đó."
+
+msgid "sect_mission_hq_only"
+msgstr "Chỉ có thể nhận nhiệm vụ tông môn tại tổng bộ của chính tông môn mình."
+
+msgid "sect_mission_members_only"
+msgstr "Chỉ đệ tử tông môn mới có thể nhận nhiệm vụ tông môn."
+
+msgid "sect_mission_no_task_available"
+msgstr "Hiện tại tông môn không có nhiệm vụ nào phù hợp với cảnh giới của ngươi."
+
+msgid "sect_mission_start_headquarter"
+msgstr "{avatar} đã nhận nhiệm vụ tông môn \"{title}\" tại tổng bộ của {sect_name}. Dự kiến cần {duration} tháng để hoàn thành."
+
+msgid "sect_mission_start_member_request"
+msgstr "{avatar} nhận nhiệm vụ tông môn \"{title}\" theo lời nhờ của đồng môn {issuer}. Dự kiến cần {duration} tháng để hoàn thành."
+
+msgid "sect_mission_result_success"
+msgstr "{avatar} đã hoàn thành thuận lợi \"{title}\", nhận được {stones} linh thạch và {contribution} điểm cống hiến tông môn."
+
+msgid "sect_mission_result_fail"
+msgstr "{avatar} bị thương khi thi hành \"{title}\", mất {damage} HP. HP hiện tại: {current}/{max}."
+
+msgid "sect_mission_result_fail_death_append"
+msgstr " Thương thế quá nặng, chết ngay tại chỗ."
+
+msgid "sect_mission_story_prompt_success"
+msgstr "Hãy triển khai câu chuyện xoay quanh đúng tiêu đề nhiệm vụ tông môn này, miêu tả chi tiết quá trình làm nhiệm vụ, những trắc trở và bầu không khí trong tông môn, rồi kết thúc bằng việc nhiệm vụ được hoàn thành thành công. Địa điểm vẫn nằm trong tổng bộ tông môn và các khu vực phụ thuộc của nó."
+
+msgid "sect_mission_story_prompt_fail"
+msgstr "Hãy triển khai câu chuyện xoay quanh đúng tiêu đề nhiệm vụ tông môn này, miêu tả chi tiết quá trình làm nhiệm vụ, những trắc trở và biến cố bất ngờ, rồi kết thúc bằng việc nhiệm vụ thất bại, trọng thương hoặc thậm chí cận kề cái chết. Địa điểm vẫn nằm trong tổng bộ tông môn và các khu vực phụ thuộc của nó."
+
+msgid "action_traveling"
+msgstr "Du Lịch"
+
+msgid "action_traveling_desc"
+msgstr "Du lịch tứ phương để cảm ngộ thiên địa."
+
+msgid "action_zither_playing"
+msgstr "Phủ Cầm"
+
+msgid "action_zither_playing_desc"
+msgstr "Phủ cầm tấu nhạc, bồi dưỡng tính tình."
+
+msgid "evil"
+msgstr "Tà"
+
+msgid "failed"
+msgstr "thất bại"
+
+msgid "neutral"
+msgstr "Trung Lập"
+
+# Action: Play
+msgid "play_action_name"
+msgstr "Giải Khuây"
+
+msgid "play_description"
+msgstr "Giải khuây để thư giãn thân tâm"
+
+msgid "play_requirements"
+msgstr "Mục tiêu ở trong phạm vi tương tác"
+
+msgid "succeeded"
+msgstr "thành công"
+
+msgid ""
+"{attacker} initiates battle against {target} (Power: {attacker} {att_power} "
+"vs {target} {def_power})"
+msgstr ""
+"{attacker} phát khởi chiến đấu với {target} (Chiến lực: {attacker} "
+"{att_power} vs {target} {def_power})"
+
+msgid "{avatar} begins leisure activities"
+msgstr "{avatar} bắt đầu giải khuây thư giãn"
+
+msgid ""
+"{avatar} failed to cast {realm}-tier treasure, all materials turned to ash"
+msgstr ""
+"{avatar} đúc tạo pháp bảo bậc {realm} thất bại, toàn bộ vật liệu hóa thành "
+"tro bụi"
+
+msgid ""
+"{avatar} failed to refine {realm}-tier elixir, all materials turned to ash"
+msgstr ""
+"{avatar} luyện chế đan dược bậc {realm} thất bại, toàn bộ vật liệu hóa thành"
+" tro bụi"
+
+msgid ""
+"{avatar} finished nurturing {weapon}, proficiency increased to "
+"{proficiency}%"
+msgstr ""
+"{avatar} hoàn tất ôn dưỡng {weapon}, độ thuần thục tăng lên {proficiency}%"
+
+msgid "{avatar} finished {action}."
+msgstr "{avatar} đã hoàn tất {action}."
+
+msgid ""
+"{avatar} had an epiphany during meditation! Cultivation increased "
+"significantly (+{exp})."
+msgstr "{avatar} đã đốn ngộ trong lúc thiền định! Tu vi tăng mạnh (+{exp})."
+
+msgid ""
+"{avatar} nurturing {old_weapon}, the weapon's spirituality greatly "
+"increased, evolved into {new_weapon}!"
+msgstr ""
+"{avatar} trong lúc ôn dưỡng {old_weapon}, linh tính của binh khí tăng vọt, "
+"thăng hoa thành {new_weapon}!"
+
+msgid ""
+"{avatar} successfully tamed spirit beast, {realm} realm {beast} became their"
+" spirit beast"
+msgstr ""
+"{avatar} thuần phục linh thú thành công, {beast} cảnh giới {realm} đã trở "
+"thành linh thú của họ"
+
+msgid "{root_name} ({elements})"
+msgstr "{root_name} ({elements})"
+
+msgid "An anonymous passerby (extra)"
+msgstr "Một người qua đường vô danh"
+
+msgid "Current world celestial phenomenon: {name}"
+msgstr "Thiên tượng thế giới hiện tại: {name}"

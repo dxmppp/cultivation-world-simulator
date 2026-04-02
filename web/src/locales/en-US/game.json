@@ -1,0 +1,338 @@
+{
+  "population": "Population",
+  "status_bar": {
+    "phenomenon": "World Phenomenon",
+    "effect": "Effect: ",
+    "duration": "Lasts {years} Years",
+    "selector_title": "Intervention: Change Phenomenon",
+    "empty_data": "No phenomenon data",
+    "cultivators": "Cultivators: {count}",
+    "change_success": "Phenomenon changed to: {name}",
+    "click_to_change": "(Click to change phenomenon)",
+    "author_github": "Star us on GitHub",
+    "hidden_domain": {
+      "label": "[Hidden Domain]",
+      "title": "Hidden Domains List",
+      "empty": "No hidden domains data",
+      "danger": "Danger",
+      "drop": "Fortune",
+      "status_open": "Open",
+      "status_closed": "Closed"
+    },
+    "world_info": {
+      "label": "[World Info]",
+      "title": "World Info",
+      "ai_knowledge_note": "What the cultivator AI knows about the cultivation world",
+      "empty": "No world info available"
+    }
+  },
+  "controls": {
+    "resume": "Resume Game",
+    "pause": "Pause Game",
+    "paused": "Paused",
+    "closed_msg": "Game closed. You can safely close this tab."
+  },
+  "event_panel": {
+    "title": "Event Logs",
+    "filter_all": "All",
+    "filter_all_sects": "All Sects",
+    "filter_event_scope_all": "All Events",
+    "filter_event_scope_major": "Major",
+    "filter_event_scope_minor": "Minor",
+    "deceased": "(Deceased)",
+    "add_second": "+ Add Second",
+    "load_more": "Scroll up to load more",
+    "empty_dual": "No events between these two",
+    "empty_single": "No events for this cultivator",
+    "empty_none": "No events"
+  },
+  "event_templates": {
+    "nickname_awarded": "{avatar_name} made a name in the cultivation world and came to be known as \"{nickname}\"."
+  },
+  "ranking": {
+    "title_short": "[Rankings]",
+    "tournament_short": "[Tournament]",
+    "title": "Heaven, Earth & Human Rankings",
+    "heaven": "Heaven (Nascent Soul)",
+    "earth": "Earth (Core Formation)",
+    "human": "Human (Foundation)",
+    "sect_ranking": "Sects",
+    "rank": "Rank",
+    "name": "Name",
+    "sect": "Sect",
+    "realm": "Realm",
+    "power": "Power",
+    "sect_name": "Sect Name",
+    "alignment": "Alignment",
+    "member_count": "Members",
+    "total_power": "Total Power",
+    "empty": "No data",
+    "tournament_title": "World Martial Arts Tournament",
+    "tournament_next": "Next tournament in {years} years",
+    "heaven_first": "Heaven 1st",
+    "earth_first": "Earth 1st",
+    "human_first": "Human 1st"
+  },
+  "sect_relations": {
+    "title_short": "[Sect Relations]",
+    "title": "Sect Relations",
+    "sect_a": "Sect A",
+    "sect_b": "Sect B",
+    "status": "Diplomatic Status",
+    "value": "Relation Value",
+    "reasons": "Reasons",
+    "empty": "No relation data",
+    "status_war": "At War",
+    "status_peace": "Peace",
+    "duration_months": "{count} months",
+    "value_label_very_hostile": "Very Hostile",
+    "value_label_hostile": "Hostile",
+    "value_label_neutral": "Neutral",
+    "value_label_friendly": "Friendly",
+    "value_label_very_friendly": "Very Friendly",
+    "overlap_tiles": "overlap {count} tiles",
+    "reasons_map": {
+      "ALIGNMENT_OPPOSITE": "Opposite alignment",
+      "ALIGNMENT_SAME": "Same alignment",
+      "ORTHODOXY_DIFFERENT": "Different orthodoxy",
+      "ORTHODOXY_SAME": "Same orthodoxy",
+      "TERRITORY_CONFLICT": "Territory conflict",
+      "WAR_STATE": "State of war",
+      "PEACE_STATE": "State of peace",
+      "LONG_PEACE": "Long peace",
+      "RANDOM_EVENT": "Random event"
+    }
+  },
+  "mortal_system": {
+    "title_short": "[Mortals]",
+    "title": "Mortal System",
+    "empty": "No data",
+    "summary": {
+      "title": "World Overview",
+      "total_population": "Total Population",
+      "total_capacity": "Total Capacity",
+      "total_growth": "Total Natural Growth"
+    },
+    "cities": {
+      "title": "City Overview",
+      "city": "City",
+      "population": "Population",
+      "capacity": "Capacity",
+      "growth": "Natural Growth"
+    },
+    "tracked": {
+      "title": "Tracked Mortals",
+      "count": "Tracked Mortals",
+      "awakening_candidates": "Awakening Candidates",
+      "name": "Name",
+      "gender": "Gender",
+      "age": "Age",
+      "birth_region": "Birth Region",
+      "unknown_region": "Unknown"
+    }
+  },
+  "dynasty": {
+    "title_short": "[Dynasty]",
+    "title": "Dynasty",
+    "name": "Dynasty Name",
+    "royal_house": "Royal House",
+    "style_tag": "Dynasty Style",
+    "official_preference": "Official Preference",
+    "effect": "Dynasty Effect",
+    "effect_source": "Dynasty",
+    "effect_empty": "No dynasty effect yet. This will be filled in after the official system and later logic are added.",
+    "low_magic": "Mortal Dynasty",
+    "empty": "No dynasty data",
+    "emperor": {
+      "title": "Current Emperor",
+      "name": "Name",
+      "age": "Age",
+      "lifespan": "Lifespan",
+      "identity": "Identity",
+      "mortal": "Mortal",
+      "empty": "No emperor data"
+    },
+    "summary": {
+      "title": "Dynasty Overview"
+    },
+    "officials": {
+      "title": "Court Officials",
+      "count": "{count} total",
+      "empty": "There are no ranked cultivators serving in court right now",
+      "realm": "Realm",
+      "court_reputation": "Court Reputation",
+      "sect": "Affiliation",
+      "rogue": "Rogue Cultivator"
+    }
+  },
+  "info_panel": {
+    "popup": {
+      "effect": "Effect: ",
+      "drops": "Drops: ",
+      "hq": "HQ: ",
+      "types": {
+        "elixir": "Elixir",
+        "plant": "Plant",
+        "lode": "Lode",
+        "item": "Item",
+        "weapon": "Weapon",
+        "auxiliary": "Auxiliary",
+        "technique": "Art",
+        "sect": "Sect",
+        "persona": "Trait",
+        "SWORD": "Sword",
+        "SABER": "Saber",
+        "SPEAR": "Spear",
+        "STAFF": "Staff",
+        "FAN": "Fan",
+        "WHIP": "Whip",
+        "ZITHER": "Zither",
+        "FLUTE": "Flute",
+        "HIDDEN_WEAPON": "Hidden Weapon"
+      }
+    },
+    "avatar": {
+      "set_objective": "Set Objective",
+      "clear_objective": "Clear Objective",
+      "dead_with_reason": "Deceased ({reason})",
+      "unknown_reason": "Unknown",
+      "long_term_objective": "Long-term",
+      "backstory": "Backstory",
+      "short_term_objective": "Short-term",
+      "stats": {
+        "realm": "Realm",
+        "origin": "Origin",
+        "age": "Age",
+        "awakened_age": "Started Cultivation At",
+        "hp": "HP",
+        "gender": "Gender",
+        "alignment": "Alignment",
+        "sect": "Sect",
+        "official_rank": "Official Rank",
+        "court_reputation": "Court Reputation",
+        "rogue": "Rogue",
+        "root": "Root",
+        "luck": "Luck",
+        "magic_stone": "Stones",
+        "sect_contribution": "Sect Contribution",
+        "appearance": "Look",
+        "battle_strength": "Power",
+        "ranking": "Ranking",
+        "emotion": "Emotion"
+      },
+      "sections": {
+        "thinking": "Thinking",
+        "traits": "Traits",
+        "techniques_equipment": "Arts & Gear",
+        "materials": "Materials",
+        "relations": "Relations",
+        "current_effects": "Current Effects"
+      },
+      "weapon_meta": "Proficiency {value}",
+      "adjust": {
+        "entry": "Adjust",
+        "title": "Adjust {category}",
+        "current": "Current Item",
+        "select": "Available List",
+        "search_placeholder": "Search by name, description, or effect",
+        "apply_personas": "Apply Traits",
+        "apply_success": "Adjustment applied",
+        "load_failed": "Failed to load adjustment list",
+        "apply_failed": "Adjustment failed",
+        "empty_item": "No {label} currently selected",
+        "custom": {
+          "title": "Create From Text Description",
+          "tag": "Custom",
+          "unnamed": "Unnamed Draft",
+          "prompt_placeholder": "Describe the effects, style, and flavor you want, for example: a fire-oriented Core Formation technique that improves breathing cultivation and breakthrough success.",
+          "prompt_required": "Please enter a description for the custom content",
+          "generate": "Generate",
+          "save": "Save And Equip",
+          "generate_failed": "Failed to generate custom content",
+          "create_success": "Custom content created and equipped",
+          "create_failed": "Failed to save custom content"
+        },
+        "categories": {
+          "technique": "Technique",
+          "weapon": "Weapon",
+          "auxiliary": "Auxiliary Gear",
+          "personas": "Traits"
+        }
+      },
+      "portrait": {
+        "entry": "Change Portrait",
+        "title": "Change Portrait",
+        "current": "Current Preview",
+        "library": "Portrait Library",
+        "preview_alt": "Avatar portrait preview",
+        "option_alt": "Portrait",
+        "empty": "No portrait available",
+        "empty_library": "No portraits available",
+        "load_failed": "Failed to load portrait library",
+        "apply_success": "Portrait updated",
+        "apply_failed": "Failed to update portrait"
+      },
+      "relation_meta": "{relation} toward {owner}",
+      "father_short": "Father",
+      "mother_short": "Mother",
+      "mortal_realm": "Mortal",
+      "modals": {
+        "set_long_term": "Set Long-term Objective",
+        "placeholder": "Enter objective...",
+        "set_failed": "Failed to set",
+        "clear_confirm": "Are you sure you want to clear the long-term objective?"
+      }
+    },
+    "region": {
+      "view_sect": "View Sect Details",
+      "essence_title": "Qi Environment",
+      "essence_info": "{type} Qi · Density {density}",
+      "sections": {
+        "host": "Cave Owner",
+        "animals": "Animals",
+        "plants": "Plants",
+        "lodes": "Minerals",
+        "market": "Market"
+      },
+      "host_meta": "Owner",
+      "no_host": "Unowned",
+      "price_meta": "{price} Stones"
+    },
+    "sect": {
+      "stats": {
+        "alignment": "Alignment",
+        "orthodoxy": "Orthodoxy",
+        "style": "Style",
+        "preferred": "Weapon",
+        "members": "Members",
+        "total_battle_strength": "Power",
+        "war_status": "War Status",
+        "strongest_enemy": "Primary Enemy",
+        "income": "Territory Income",
+        "income_value": "{income}/cycle",
+        "upkeep": "Member Upkeep",
+        "upkeep_value": "{upkeep}/cycle",
+        "war_weariness": "War Weariness",
+        "magic_stone": "Stones"
+      },
+      "sections": {
+        "intro": "Introduction",
+        "rule": "Sect Rule",
+        "hq": "HQ: {name}",
+        "bonus": "Sect Bonus",
+        "diplomacy": "Diplomatic Situation",
+        "thinking": "Sect Thinking",
+        "techniques": "Technique Library",
+        "members": "Disciples"
+      },
+      "diplomacy_meta_relation": "Relation value {value}",
+      "diplomacy_war_years": "At war for {count} year(s)",
+      "diplomacy_peace_years": "At peace for {count} year(s)",
+      "no_rule": "No explicit sect rule description",
+      "no_bonus": "No special bonus",
+      "no_runtime_effect": "No active sect runtime effects",
+      "runtime_effect_meta": "Source: {source} - Remaining: {months} month(s)",
+      "runtime_effect_meta_permanent": "Source: {source} - Duration: Permanent"
+    }
+  }
+}

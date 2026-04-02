@@ -1,0 +1,75 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cultivation-world-simulator 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-20 00:00+0000\n"
+"PO-Revision-Date: 2024-01-20 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: en-US\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
+"\n"
+"(Selecting {replace} will sell old {label})"
+msgstr ""
+"\n"
+"(Selecting {replace} will sell old {label})"
+
+# Sect Rank
+msgid "patriarch"
+msgstr "Patriarch"
+
+msgid "phenomenon_change"
+msgstr ""
+"{old_name} dissipates, celestial phenomena reappear! {new_name}: {new_desc}."
+
+msgid "world_creation_phenomenon"
+msgstr "The world is born, celestial phenomena descend! {name}: {desc}."
+
+msgid ""
+"{avatar_name} deliberated and redefined their long-term objective: "
+"{objective}"
+msgstr ""
+"{avatar_name} deliberated and redefined their long-term objective: "
+"{objective}"
+
+msgid "{avatar_name} determined their long-term objective: {objective}"
+msgstr "{avatar_name} determined their long-term objective: {objective}"
+
+# Sect System - Sects
+msgid "Base effect"
+msgstr "Base effect"
+
+msgid "Sect random event"
+msgstr "Sect random event"
+
+msgid "Temporary effect"
+msgstr "Temporary effect"
+
+msgid "{sect_name} (Alignment: {alignment}, Headquarters: {hq_name})"
+msgstr "{sect_name} (Alignment: {alignment}, Headquarters: {hq_name})"
+
+msgid ""
+"{sect_name} (Alignment: {alignment}, Style: {style}, Headquarters: "
+"{hq_name}){effect}"
+msgstr ""
+"{sect_name} (Alignment: {alignment}, Style: {style}, Headquarters: "
+"{hq_name}){effect}"
+
+msgid ""
+"{sect_name} (Orthodoxy: {orthodoxy}, Alignment: {alignment}, Headquarters: "
+"{hq_name})"
+msgstr ""
+"{sect_name} (Orthodoxy: {orthodoxy}, Alignment: {alignment}, Headquarters: "
+"{hq_name})"
+
+msgid ""
+"{sect_name} (Orthodoxy: {orthodoxy}, Alignment: {alignment}, Style: {style},"
+" Headquarters: {hq_name}){effect}"
+msgstr ""
+"{sect_name} (Orthodoxy: {orthodoxy}, Alignment: {alignment}, Style: {style},"
+" Headquarters: {hq_name}){effect}"

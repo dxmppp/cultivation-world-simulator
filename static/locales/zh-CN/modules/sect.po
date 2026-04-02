@@ -1,0 +1,67 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cultivation-world-simulator 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-20 00:00+0000\n"
+"PO-Revision-Date: 2024-01-20 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: zh-CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
+"\n"
+"(Selecting {replace} will sell old {label})"
+msgstr ""
+"\n"
+"（选择{replace}将卖出旧{label}）"
+
+# Sect Rank
+msgid "patriarch"
+msgstr "掌门"
+
+msgid "phenomenon_change"
+msgstr "{old_name}消散，天地异象再现！{new_name}：{new_desc}。"
+
+msgid "world_creation_phenomenon"
+msgstr "世界初开，天降异象！{name}：{desc}。"
+
+msgid ""
+"{avatar_name} deliberated and redefined their long-term objective: "
+"{objective}"
+msgstr "{avatar_name} 经过深思熟虑，重新确定了自己的长期目标：{objective}"
+
+msgid "{avatar_name} determined their long-term objective: {objective}"
+msgstr "{avatar_name} 确定了自己的长期目标：{objective}"
+
+# Sect 系统 - 宗门
+msgid "Base effect"
+msgstr "基础效果"
+
+msgid "Sect random event"
+msgstr "宗门随机事件"
+
+msgid "Temporary effect"
+msgstr "临时效果"
+
+msgid "{sect_name} (Alignment: {alignment}, Headquarters: {hq_name})"
+msgstr "{sect_name}（阵营：{alignment}，驻地：{hq_name}）"
+
+msgid ""
+"{sect_name} (Alignment: {alignment}, Style: {style}, Headquarters: "
+"{hq_name}){effect}"
+msgstr "{sect_name}（阵营：{alignment}，风格：{style}，驻地：{hq_name}）{effect}"
+
+msgid ""
+"{sect_name} (Orthodoxy: {orthodoxy}, Alignment: {alignment}, Headquarters: "
+"{hq_name})"
+msgstr "{sect_name}（道统：{orthodoxy}，阵营：{alignment}，驻地：{hq_name}）"
+
+msgid ""
+"{sect_name} (Orthodoxy: {orthodoxy}, Alignment: {alignment}, Style: {style},"
+" Headquarters: {hq_name}){effect}"
+msgstr ""
+"{sect_name}（道统：{orthodoxy}，阵营：{alignment}，风格：{style}，驻地：{hq_name}）{effect}"
