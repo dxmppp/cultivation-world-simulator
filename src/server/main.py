@@ -2137,11 +2137,14 @@ async def create_player_avatar(req: CreatePlayerRequest):
         from src.sim.avatar_init import create_avatar_from_request
         from src.systems.cultivation import Realm, CultivationProgress, REALM_ORDER
         
-        realm = Realm(req.initial_realm)
-        
-        # 将 realm 转换为 level（每个 realm 30 级）
-        realm_index = REALM_ORDER.index(realm) if realm in REALM_ORDER else 0
-        level = realm_index * 30 + 1  # 每个 realm 的第一级
+        # 处理 Mortal（凡人）的情况
+        if req.initial_realm == "Mortal":
+            level = 0  # 凡人，尚未开始修炼
+        else:
+            realm = Realm(req.initial_realm)
+            # 将 realm 转换为 level（每个 realm 30 级）
+            realm_index = REALM_ORDER.index(realm) if realm in REALM_ORDER else 0
+            level = realm_index * 30 + 1  # 每个 realm 的第一级
         
         # 创建玩家角色
         avatar = create_avatar_from_request(
