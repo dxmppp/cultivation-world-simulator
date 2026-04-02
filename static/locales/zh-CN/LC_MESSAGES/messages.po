@@ -3248,3 +3248,28 @@ msgstr "鞭"
 
 msgid "zither"
 msgstr "琴"
+
+# Action: Subdue
+msgid "subdue_action_name"
+msgstr "降服"
+
+msgid "subdue_description"
+msgstr "在战斗后将弱势敌人收为随从。目标HP需要低于30%"
+
+msgid "subdue_requirements"
+msgstr "目标HP低于上限30%，目标无主人"
+
+msgid "{player} successfully subdued {target}! {target} is now a subordinate."
+msgstr "{player}成功降服了{target}！{target}已成为随从。"
+
+msgid "{player} failed to subdue {target}. {target} breaks free!"
+msgstr "{player}降服{target}失败，{target}挣脱逃走了！"
+
+msgid "Target already has a master"
+msgstr "目标已有主人"
+
+msgid "Target HP is too high, weaken them first (need <= 30%)"
+msgstr "目标HP过高，先将其削弱（需要<=30%）"
+
+msgid "Cannot subdue yourself"
+msgstr "不能降服自己"

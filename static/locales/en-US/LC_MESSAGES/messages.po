@@ -3543,3 +3543,28 @@ msgstr "Whip"
 
 msgid "zither"
 msgstr "Zither"
+
+# Action: Subdue
+msgid "subdue_action_name"
+msgstr "Subdue"
+
+msgid "subdue_description"
+msgstr "Subdue a weakened enemy after battle to make them your subordinate. Target HP must be below 30%."
+
+msgid "subdue_requirements"
+msgstr "Target HP below 30% max, target has no master."
+
+msgid "{player} successfully subdued {target}! {target} is now a subordinate."
+msgstr "{player} successfully subdued {target}! {target} is now a subordinate."
+
+msgid "{player} failed to subdue {target}. {target} breaks free!"
+msgstr "{player} failed to subdue {target}. {target} breaks free!"
+
+msgid "Target already has a master"
+msgstr "Target already has a master"
+
+msgid "Target HP is too high, weaken them first (need <= 30%)"
+msgstr "Target HP is too high, weaken them first (need <= 30%)"
+
+msgid "Cannot subdue yourself"
+msgstr "Cannot subdue yourself"
