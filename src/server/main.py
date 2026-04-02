@@ -2160,6 +2160,9 @@ async def create_player_avatar(req: CreatePlayerRequest):
         # 标记为玩家角色
         avatar.is_player = True
         
+        # 注册到 AvatarManager（否则不会被游戏循环处理）
+        world.avatar_manager.register_avatar(avatar)
+        
         return {
             "status": "ok",
             "avatar_id": avatar.id,
