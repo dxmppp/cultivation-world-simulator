@@ -20,7 +20,8 @@ export type SystemMenuTab =
   | 'start'
   | 'settings'
   | 'about'
-  | 'other';
+  | 'other'
+  | 'player';
 
 export const useUiStore = defineStore('ui', () => {
   // --- Selection & Panels ---

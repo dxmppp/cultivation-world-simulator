@@ -9,13 +9,14 @@ import CreateAvatarPanel from './game/panels/system/CreateAvatarPanel.vue'
 import DeleteAvatarPanel from './game/panels/system/DeleteAvatarPanel.vue'
 import LLMConfigPanel from './game/panels/system/LLMConfigPanel.vue'
 import GameStartPanel from './game/panels/system/GameStartPanel.vue'
+import PlayerPanel from './game/panels/PlayerPanel.vue'
 
 const { t } = useI18n()
 const settingStore = useSettingStore()
 
 const props = defineProps<{
   visible: boolean
-  defaultTab?: 'save' | 'load' | 'create' | 'delete' | 'llm' | 'start' | 'settings' | 'about' | 'other'
+  defaultTab?: 'save' | 'load' | 'create' | 'delete' | 'llm' | 'start' | 'settings' | 'about' | 'other' | 'player'
   gameInitialized: boolean
   closable?: boolean
 }>()
@@ -27,7 +28,7 @@ const emit = defineEmits<{
   (e: 'exit-game'): void
 }>()
 
-const activeTab = ref<'save' | 'load' | 'create' | 'delete' | 'llm' | 'start' | 'settings' | 'about' | 'other'>(props.defaultTab || 'load')
+const activeTab = ref<'save' | 'load' | 'create' | 'delete' | 'llm' | 'start' | 'settings' | 'about' | 'other' | 'player'>(props.defaultTab || 'load')
 
 const languageOptions = computed(() =>
   localeRegistry
@@ -103,6 +104,14 @@ watch(() => props.visible, (val) => {
           {{ t('ui.create_character') }}
         </button>
         <button 
+          :class="{ active: activeTab === 'player' }"
+          @click="switchTab('player')"
+          :disabled="!gameInitialized"
+          v-sound:select
+        >
+          {{ t('ui.player_console') }}
+        </button>
+        <button 
           :class="{ active: activeTab === 'delete' }"
           @click="switchTab('delete')"
           :disabled="!gameInitialized"
@@ -155,6 +164,12 @@ watch(() => props.visible, (val) => {
         <CreateAvatarPanel 
           v-else-if="activeTab === 'create'" 
           @created="switchTab('create')" 
+        />
+        
+        <PlayerPanel 
+          v-else-if="activeTab === 'player'" 
+          :game-initialized="gameInitialized"
+          @close="emit('close')"
         />
         
         <DeleteAvatarPanel v-else-if="activeTab === 'delete'" />
