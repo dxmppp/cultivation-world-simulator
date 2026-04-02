@@ -2193,7 +2193,7 @@ async def submit_player_command(req: PlayerCommandRequest):
         from src.classes.player_command_parser import parse_player_command, validate_and_fill_params
         
         # 解析玩家指令
-        result = parse_player_command(req.command, world, player_avatar)
+        result = await parse_player_command(req.command, world, player_avatar)
         
         if result is None:
             return {
