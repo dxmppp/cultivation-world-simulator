@@ -66,6 +66,9 @@ class Simulator:
         # 6. 执行当前行动
         ctx.add_events(await actions.phase_execute_actions(ctx.living_avatars))
 
+        # 6.5 处理玩家指令（自然语言 -> 动作）
+        ctx.add_events(await actions.phase_process_player_commands(ctx.living_avatars))
+
         # 7. 处理基于事件的交互（第一轮）
         # 第一轮会把动作阶段产出的互动事件计入角色状态，
         # 让紧接着的关系演化可以在同月看到这些变化。

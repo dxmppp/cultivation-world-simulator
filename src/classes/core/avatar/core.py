@@ -146,6 +146,18 @@ class Avatar(
     # Key: 对方Avatar ID, Value: 开始时的 MonthStamp (int)
     relation_start_dates: dict[str, int] = field(default_factory=dict)
 
+    # ========== 玩家角色相关字段 ==========
+    # 是否为玩家控制的角色
+    is_player: bool = False
+    # 随从列表（玩家收服的 NPC）
+    subordinates: List[str] = field(default_factory=list)  # Avatar ID 列表
+    # 主人 ID（如果是随从）
+    master_id: Optional[str] = None
+    # 好感度列表（玩家交友的 NPC）
+    friends: List[str] = field(default_factory=list)  # Avatar ID 列表
+    # 玩家输入队列（待执行的自然语言指令）
+    pending_player_commands: List[str] = field(default_factory=list)
+
     # 拥有的洞府列表（不参与序列化，通过 load_game 重建）
     owned_regions: List["CultivateRegion"] = field(default_factory=list, init=False)
 
@@ -607,6 +619,66 @@ class Avatar(
             
         # 散修返回默认道统
         return get_orthodoxy("sanxiu")
+
+    # ========== 玩家角色相关方法 ==========
+
+    def add_subordinate(self, avatar_id: str) -> bool:
+        """添加随从（收服成功时调用）"""
+        if avatar_id not in self.subordinates:
+            self.subordinates.append(avatar_id)
+            return True
+        return False
+
+    def remove_subordinate(self, avatar_id: str) -> bool:
+        """移除随从"""
+        if avatar_id in self.subordinates:
+            self.subordinates.remove(avatar_id)
+            return True
+        return False
+
+    def get_subordinates(self) -> List["Avatar"]:
+        """获取随从对象列表"""
+        return [a for a in self.world.avatars.values() if a.id in self.subordinates and not a.is_dead]
+
+    def add_friend(self, avatar_id: str) -> bool:
+        """添加好友"""
+        if avatar_id not in self.friends:
+            self.friends.append(avatar_id)
+            return True
+        return False
+
+    def remove_friend(self, avatar_id: str) -> bool:
+        """移除好友"""
+        if avatar_id in self.friends:
+            self.friends.remove(avatar_id)
+            return True
+        return False
+
+    def get_friends(self) -> List["Avatar"]:
+        """获取好友对象列表"""
+        return [a for a in self.world.avatars.values() if a.id in self.friends and not a.is_dead]
+
+    def is_subordinate_of(self, avatar_id: str) -> bool:
+        """判断自己是否是某玩家的随从"""
+        return self.master_id == avatar_id
+
+    def is_friend_of(self, avatar_id: str) -> bool:
+        """判断自己是否是某玩家的好友"""
+        return self.id in self.friends
+
+    def queue_player_command(self, command: str) -> None:
+        """将玩家的自然语言指令加入队列"""
+        self.pending_player_commands.append(command)
+
+    def pop_player_command(self) -> Optional[str]:
+        """从队列中取出一个待执行的玩家指令"""
+        if self.pending_player_commands:
+            return self.pending_player_commands.pop(0)
+        return None
+
+    def has_pending_commands(self) -> bool:
+        """检查是否有待执行的玩家指令"""
+        return len(self.pending_player_commands) > 0
 
     @property
     def current_action_name(self) -> str:

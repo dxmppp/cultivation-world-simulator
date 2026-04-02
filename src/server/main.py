@@ -2108,6 +2108,168 @@ async def api_load_game(req: LoadGameRequest):
         game_instance["init_error"] = str(e)
         raise HTTPException(status_code=500, detail=f"Load failed: {str(e)}")
 
+# --- 玩家角色 API ---
+from pydantic import BaseModel
+from typing import Optional
+
+class CreatePlayerRequest(BaseModel):
+    name: str
+    gender: str
+    age: int
+    initial_realm: str
+    sect_id: Optional[str] = None
+    persona_ids: list[str] = []
+    backstory: Optional[str] = None
+
+class PlayerCommandRequest(BaseModel):
+    command: str
+    player_avatar_id: str
+
+
+@app.post("/api/player/create")
+async def create_player_avatar(req: CreatePlayerRequest):
+    """创建玩家角色"""
+    world = game_instance.get("world")
+    if world is None:
+        raise HTTPException(status_code=400, detail="游戏未初始化")
+    
+    try:
+        from src.sim.avatar_init import create_avatar_from_request
+        from src.systems.cultivation import Realm
+        
+        realm = Realm(req.initial_realm)
+        
+        # 创建玩家角色
+        avatar = create_avatar_from_request(
+            world=world,
+            name=req.name,
+            gender=req.gender,
+            age=req.age,
+            realm=realm,
+            sect_id=req.sect_id,
+            persona_ids=req.persona_ids,
+            backstory=req.backstory,
+        )
+        
+        # 标记为玩家角色
+        avatar.is_player = True
+        
+        return {
+            "status": "ok",
+            "avatar_id": avatar.id,
+            "name": avatar.name,
+            "realm": str(avatar.cultivation_progress.realm),
+        }
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"创建玩家角色失败: {e}")
+
+
+@app.post("/api/player/command")
+async def submit_player_command(req: PlayerCommandRequest):
+    """提交玩家指令（自然语言）"""
+    world = game_instance.get("world")
+    if world is None:
+        raise HTTPException(status_code=400, detail="游戏未初始化")
+    
+    player_avatar = world.avatar_manager.avatars.get(req.player_avatar_id)
+    if player_avatar is None:
+        raise HTTPException(status_code=404, detail="玩家角色不存在")
+    
+    if not player_avatar.is_player:
+        raise HTTPException(status_code=400, detail="该角色不是玩家角色")
+    
+    try:
+        from src.classes.player_command_parser import parse_player_command, validate_and_fill_params
+        
+        # 解析玩家指令
+        result = parse_player_command(req.command, world, player_avatar)
+        
+        if result is None:
+            return {
+                "status": "error",
+                "message": "无法理解指令，请换一种说法",
+            }
+        
+        action_name, params = result
+        
+        # 验证参数
+        ok, error_msg = validate_and_fill_params(action_name, params, world, player_avatar)
+        if not ok:
+            return {
+                "status": "error",
+                "message": f"指令无法执行: {error_msg}",
+            }
+        
+        # 将动作加入玩家角色的待执行队列
+        player_avatar.queue_player_command((action_name, params))
+        
+        return {
+            "status": "ok",
+            "message": f"指令已加入队列: {action_name}",
+            "action_name": action_name,
+            "params": params,
+        }
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"指令处理失败: {e}")
+
+
+@app.get("/api/player/status/{avatar_id}")
+def get_player_status(avatar_id: str):
+    """获取玩家角色状态"""
+    world = game_instance.get("world")
+    if world is None:
+        raise HTTPException(status_code=400, detail="游戏未初始化")
+    
+    avatar = world.avatar_manager.avatars.get(avatar_id)
+    if avatar is None:
+        raise HTTPException(status_code=404, detail="角色不存在")
+    
+    subordinates = [
+        {"id": a.id, "name": a.name, "realm": str(a.cultivation_progress.realm)}
+        for a in avatar.get_subordinates()
+    ]
+    
+    friends = [
+        {"id": a.id, "name": a.name, "realm": str(a.cultivation_progress.realm)}
+        for a in avatar.get_friends()
+    ]
+    
+    pending_count = len(avatar.pending_player_commands)
+    
+    return {
+        "id": avatar.id,
+        "name": avatar.name,
+        "is_player": avatar.is_player,
+        "realm": str(avatar.cultivation_progress.realm),
+        "hp": avatar.hp.current,
+        "hp_max": avatar.hp.max_val,
+        "mp": getattr(avatar, "mp", 0),  # 灵力（如果有）
+        "position": {"x": avatar.pos_x, "y": avatar.pos_y},
+        "subordinates": subordinates,
+        "friends": friends,
+        "pending_commands_count": pending_count,
+    }
+
+
+@app.get("/api/player/list")
+def list_player_avatars():
+    """列出所有玩家角色"""
+    world = game_instance.get("world")
+    if world is None:
+        return {"players": []}
+    
+    players = [
+        {"id": a.id, "name": a.name, "realm": str(a.cultivation_progress.realm)}
+        for a in world.avatar_manager.avatars.values()
+        if getattr(a, "is_player", False)
+    ]
+    return {"players": players}
+
+
 # --- 静态文件挂载 (必须放在最后) ---
 
 # 1. 挂载游戏资源 (图片等)

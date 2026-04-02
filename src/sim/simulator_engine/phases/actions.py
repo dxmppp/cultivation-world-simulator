@@ -93,3 +93,67 @@ async def phase_execute_actions(living_avatars: list[Avatar]) -> list[Event]:
         round_count += 1
 
     return events
+
+
+async def phase_process_player_commands(living_avatars: list[Avatar]) -> list[Event]:
+    """
+    处理玩家指令：将玩家队列中的自然语言指令转换为动作并执行。
+    只处理标记为 is_player 的角色。
+    """
+    events: list[Event] = []
+    
+    for avatar in living_avatars:
+        if not getattr(avatar, "is_player", False):
+            continue
+        
+        # 逐个处理待执行的玩家指令
+        while avatar.has_pending_commands():
+            cmd = avatar.pop_player_command()
+            if cmd is None:
+                break
+            
+            action_name, params = cmd
+            
+            # 获取动作类
+            from src.classes.action.registry import ActionRegistry
+            if action_name not in ActionRegistry.all_names():
+                print(f"[PlayerCommand] 未知动作: {action_name}")
+                continue
+            
+            action_cls = ActionRegistry.get(action_name)
+            
+            # 实例化并执行
+            try:
+                action_inst = action_cls(avatar, avatar.world)
+                
+                # 验证是否可以执行
+                can_start_result = action_inst.can_start(**params) if params else action_inst.can_start()
+                if isinstance(can_start_result, tuple):
+                    ok, msg = can_start_result
+                    if not ok:
+                        print(f"[PlayerCommand] {action_name} 无法执行: {msg}")
+                        continue
+                
+                # 开始执行动作
+                start_event = action_inst.start(**params) if params else action_inst.start()
+                if start_event and not is_null_event(start_event):
+                    events.append(start_event)
+                    
+                # 如果是即时动作，立即 tick
+                from src.classes.action import InstantAction
+                if isinstance(action_inst, InstantAction):
+                    tick_events = await avatar.tick_action()
+                    if tick_events:
+                        events.extend(tick_events)
+                        
+            except Exception as exc:
+                get_logger().logger.error(
+                    "Avatar %s(%s) 执行玩家指令 %s 失败: %s",
+                    avatar.name,
+                    avatar.id,
+                    action_name,
+                    exc,
+                    exc_info=True,
+                )
+    
+    return events
