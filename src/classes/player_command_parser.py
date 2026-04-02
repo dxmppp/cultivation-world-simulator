@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     from src.classes.core.world import World
 
 
-def parse_player_command(command: str, world: "World", avatar: "Avatar") -> Optional[ACTION_NAME_PARAMS_PAIR]:
+async def parse_player_command(command: str, world: "World", avatar: "Avatar") -> Optional[ACTION_NAME_PARAMS_PAIR]:
     """
     将玩家的自然语言指令解析为 (action_name, params) 元组。
     
@@ -47,7 +47,7 @@ def parse_player_command(command: str, world: "World", avatar: "Avatar") -> Opti
     )
 
     try:
-        response = call_llm(prompt, mode=LLMMode.NORMAL)
+        response = await call_llm(prompt, mode=LLMMode.NORMAL)
         
         # 尝试解析 JSON
         text = response.strip()
